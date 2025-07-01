@@ -425,7 +425,7 @@ func (s *httpSigner) buildCanonicalHeaders(host string, rule v4Internal.Rule, he
 	signed[hostHeader] = append(signed[hostHeader], host)
 
 	const contentLengthHeader = "content-length"
-	if length > 0 {
+	if length >= 0 {
 		headers = append(headers, contentLengthHeader)
 		signed[contentLengthHeader] = append(signed[contentLengthHeader], strconv.FormatInt(length, 10))
 	}
